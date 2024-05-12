@@ -1,0 +1,58 @@
+
+<div style="display: flex; justify-content:space-between">
+    <div>
+      <p style="margin-bottom:0"> 안녕하세요, </p> <p style="margin-top:0; font-weight: bold"> {{ user }}님.</p>
+    </div>    
+  <h2>MBTI 상담소 </h2>
+  <form style="margin: 0 20 00 10px; display:flex; align-items: center" action="/logout" method="post">
+    {% csrf_token %}
+    <button style="background-color: #F0F8FF; height: 30px; width: 100px; "type="submit">Logout</button>
+  </form>
+</div>
+<div id= "chat-container" class="chat-container">
+    <p class="chatbot-message"> <span style="font-weight:bold"> MBTI Consultant :</span> "안녕하세요. MBTI가 어떻게 되시나요?" </p>
+    {% for chat in chats %}
+    <p class="user-message"> <span style="font-weight:bold"> You: </span> {{ chat.prompt }}</p>
+    <p class="chatbot-message"> <span style="font-weight:bold"> MBTI Consultant: </span> {{ chat.response }}</p>
+    {% endfor %}
+</div>
+<form method="post" style="padding-left: 5px ">
+  {% csrf_token %}
+  <input type = "text" class="form-control" name="user_input" style="height: 40px; width: 100%; margin-bottom: 10px">
+  </br>
+  <button type = "submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+
+
+
+
+
+<style>
+  .chat-container {
+      max-height: 500px; /* 채팅 창의 최대 높이를 제한 */
+      overflow-y: auto; /* 수직 스크롤바 활성화 */
+      border: 1px solid gray; /* 테두리 설정 */
+      padding: 10px; /* 패딩 설정 */
+      background-color: white; /* 배경색 설정 */
+      margin: 5px; /* 마진 설정 */
+  }
+  .user-message, .chatbot-message {
+      border: 1px solid black;
+      padding: 10px;
+      padding-left: 2px;
+      margin-bottom: 10px; /* 메시지 간 간격 */
+  }
+  .chatbot-message {
+      background-color: #C0C0C0;
+  }
+</style>
+
+
+
+<script>
+  // 페이지 로드가 완료되면 실행
+  window.onload = function() {
+      var chatContainer = document.getElementById('chat-container');
+      chatContainer.scrollTop = chatContainer.scrollHeight; // 스크롤을 맨 아래로 이동
+  }
+</script>
