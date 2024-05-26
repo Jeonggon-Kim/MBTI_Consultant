@@ -50,13 +50,12 @@ def main_page(request):
       user_input = request.POST.get('user_input')
       prompt = user_input 
       messages = []
-      # messages.append({"role" : "assistant", "content" : '안녕하세요. mbti가 어떻게 되시나요?'})
+      messages.append({"role" : "assistant", "content" : '안녕하세요. mbti가 어떻게 되시나요?'})
       for chat in chats :
         messages.append({"role" : "user", "content" : chat.prompt})
         messages.append({"role" : "assistant", "content" : chat.response})
       messages.append({"role" : "user", "content" : prompt})
-      messages.append({"role": "system", "content": "You are a Early Childhood Educator. You are supposed to educate the person with history knowledge"})
-      
+      messages.append({"role": "system", "content": "Your job is to consult the user regarding his or her mbti. When the user tells you the mbti, you have to ask what kind of problem that he has that he wants to consult with you. every response that you give should be related to mbti"})      
       
       response = client.chat.completions.create(
         model = 'gpt-3.5-turbo',
