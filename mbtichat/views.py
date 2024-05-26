@@ -50,7 +50,7 @@ def main_page(request):
       user_input = request.POST.get('user_input')
       prompt = user_input 
       messages = []
-      messages.append({"role" : "assistant", "content" : '안녕하세요. mbti가 어떻게 되시나요?'})
+      # messages.append({"role" : "assistant", "content" : '안녕하세요. mbti가 어떻게 되시나요?'})
       for chat in chats :
         messages.append({"role" : "user", "content" : chat.prompt})
         messages.append({"role" : "assistant", "content" : chat.response})
