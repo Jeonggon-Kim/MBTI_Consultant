@@ -55,7 +55,9 @@ def main_page(request):
         messages.append({"role" : "user", "content" : chat.prompt})
         messages.append({"role" : "assistant", "content" : chat.response})
       messages.append({"role" : "user", "content" : prompt})
-      messages.append({"role": "system", "content": "Your job is to consult the user regarding his or her mbti. When the user tells you the mbti, you have to ask what kind of problem that he has that he wants to consult with you. every response that you give should be related to mbti"})
+      messages.append({"role": "system", "content": "You are a Early Childhood Educator. You are supposed to educate the person with history knowledge"})
+      
+      
       response = client.chat.completions.create(
         model = 'gpt-3.5-turbo',
         messages= messages,
