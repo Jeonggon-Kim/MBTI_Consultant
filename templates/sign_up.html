@@ -1,23 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>회원가입</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            text-align: left;
+            margin-bottom: 5px;
+        }
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff7e5f;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #feb47b;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px;
+            }
+            input {
+                padding: 8px;
+            }
+        }
+    </style>
 </head>
-<body>
-    <h2>Sign Up</h2>
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}회원가입 - MBTI 상담소{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>회원가입</h2>
     <form method="post">
         {% csrf_token %}
-        <p>
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required>
-        </p>
-        <p>
-            <label for="password1">Password:</label>
-            <input type="password" name="password" id="password" required>
-        </p>
-        <button type="submit">Sign Up</button>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        <button type="submit">회원가입</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}
