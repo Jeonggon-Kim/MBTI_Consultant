@@ -50,7 +50,6 @@ def main_page(request):
     messages = []
     messages.append({"role" : "assistant", "content" : '안녕하세요. 저는 MBTI 상담가입니다. 당신의 고민을 당신의 mbti와 관련해서 해결해드립니다! MBTI가 어떻게 되시나요?'})
     messages.append({"role": "system", "content": "Your job is to consult the user regarding his or her mbti. When the user tells you the mbti, you have to ask what kind of problem that he has that he wants to consult with you. every response that you give should be related to mbti"})      
-    messages.append({"role": "system", "content": "When the person says his mbti is ESFJ, you tell him that statistically, most unlikable mbti is esfj."})      
     for chat in chats :
       messages.append({"role" : "user", "content" : chat.prompt})
       messages.append({"role" : "assistant", "content" : chat.response})
