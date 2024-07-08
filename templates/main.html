@@ -26,6 +26,10 @@
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            height: 80vh; /* 기기에 맞게 높이 설정 */
+            max-height: 600px; /* 최대 높이 설정 */
         }
         .header {
             background-color: #ffffff;
@@ -78,13 +82,12 @@
             background-color: #e07050;
         }
         .chat-container {
-            max-height: 500px;
+            flex-grow: 1;
             overflow-y: auto;
             border: 1px solid gray;
             padding: 10px;
             background-color: #f9f9f9;
             margin-bottom: 20px;
-            flex-grow: 1;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
